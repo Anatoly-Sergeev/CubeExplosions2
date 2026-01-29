@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 1615195747}
   - component: {fileID: 1615195746}
   - component: {fileID: 1615195750}
+  - component: {fileID: 1615195751}
   m_Layer: 0
   m_Name: Divider
   m_TagString: Untagged
@@ -623,9 +624,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a7e2fb1e72aa140b0fa5efd46bedc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 300
-  _explosionRadius: 100
+  _exploderRenderer: {fileID: 1615195751}
+  _explosionForce: 100
+  _explosionRadius: 25
   _upwardsModifier: 0.5
+--- !u!114 &1615195751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615195745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e96ceaf04109c64e9152317c5d60ac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _effectExplosion: {fileID: 8970668011737306689, guid: 286aeb44d763d664ba22fff60e040c42,
+    type: 3}
 --- !u!1 &1635611955
 GameObject:
   m_ObjectHideFlags: 0
