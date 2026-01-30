@@ -28,7 +28,7 @@ public class Divider : MonoBehaviour
         }
         else
         {
-            _exploder.ExplosionCube(cube.transform.position, cube.transform.rotation, cube.transform.localScale);
+            _exploder.ExplosionCube(cube.transform);
         }
     }
 

@@ -8,17 +8,17 @@ public class Exploder : MonoBehaviour
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _upwardsModifier;
 
-    public void ExplosionCube(Vector3 explosionPosition, Quaternion rotation, Vector3 scale)
+    public void ExplosionCube(Transform transform)
     {
-        float force = _explosionForce / scale.x;
-        float radius = _explosionRadius / scale.x;
+        float force = _explosionForce / transform.localScale.x;
+        float radius = _explosionRadius / transform.localScale.x;
 
-        foreach (Rigidbody cube in GetExplodebleCubes(explosionPosition, radius))
+        foreach (Rigidbody cube in GetExplodebleCubes(transform.position, radius))
         {
-            cube.AddExplosionForce(force, explosionPosition, radius, _upwardsModifier);
+            cube.AddExplosionForce(force, transform.position, radius, _upwardsModifier);
         }
 
-        _exploderRenderer.ExplosionRender(explosionPosition, rotation);
+        _exploderRenderer.ExplosionRender(transform.position, transform.rotation);
     }
 
     private List<Rigidbody> GetExplodebleCubes(Vector3 position, float radius)
