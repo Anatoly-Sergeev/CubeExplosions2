@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _exploderRenderer: {fileID: 1615195751}
-  _explosionForce: 200
+  _explosionForce: 25
   _explosionRadius: 5
   _upwardsModifier: 0.7
 --- !u!114 &1615195751
