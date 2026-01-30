@@ -10,9 +10,12 @@ public class Exploder : MonoBehaviour
 
     public void ExplosionCube(Vector3 explosionPosition, Quaternion rotation, Vector3 scale)
     {
-        foreach (Rigidbody cube in GetExplodebleCubes(explosionPosition, _explosionRadius))
+        float force = _explosionForce * scale.x;
+        float radius = _explosionRadius * scale.x;
+
+        foreach (Rigidbody cube in GetExplodebleCubes(explosionPosition, radius))
         {
-            cube.AddExplosionForce(_explosionForce, explosionPosition, _explosionRadius, _upwardsModifier);
+            cube.AddExplosionForce(force, explosionPosition, radius, _upwardsModifier);
         }
 
         _exploderRenderer.ExplosionRender(explosionPosition, rotation);
@@ -26,7 +29,7 @@ public class Exploder : MonoBehaviour
 
         foreach (Collider hit in hits)
         {
-            if(hit.attachedRigidbody != null)
+            if (hit.attachedRigidbody != null)
             {
                 cubes.Add(hit.attachedRigidbody);
             }

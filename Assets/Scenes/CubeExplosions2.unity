@@ -625,9 +625,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _exploderRenderer: {fileID: 1615195751}
-  _explosionForce: 100
-  _explosionRadius: 25
-  _upwardsModifier: 0.5
+  _explosionForce: 200
+  _explosionRadius: 5
+  _upwardsModifier: 0.7
 --- !u!114 &1615195751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e96ceaf04109c64e9152317c5d60ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectExplosion: {fileID: 8970668011737306689, guid: 286aeb44d763d664ba22fff60e040c42,
+  _effectExplosion: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
 --- !u!1 &1635611955
 GameObject:
