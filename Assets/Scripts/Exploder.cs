@@ -10,8 +10,8 @@ public class Exploder : MonoBehaviour
 
     public void ExplosionCube(Vector3 explosionPosition, Quaternion rotation, Vector3 scale)
     {
-        float force = _explosionForce * scale.x;
-        float radius = _explosionRadius * scale.x;
+        float force = _explosionForce / scale.x;
+        float radius = _explosionRadius / scale.x;
 
         foreach (Rigidbody cube in GetExplodebleCubes(explosionPosition, radius))
         {
