@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    public float DivideChance { get; private set; }
-
     public event Action<Cube> ClickedToDestroy;
+
+    public float DivideChance { get; private set; }
 
     private void OnMouseDown()
     {

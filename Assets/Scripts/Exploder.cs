@@ -18,9 +18,9 @@ public class Exploder : MonoBehaviour
         }
     }
 
-    public void ExplosionSplitCube(Vector3 explosionPosition, List<Rigidbody> cubes)
+    public void ExplosionSplitCube(Vector3 explosionPosition, List<Rigidbody> explodebleCubes)
     {
-        foreach (Rigidbody cube in cubes)
+        foreach (Rigidbody cube in explodebleCubes)
         {
             cube.AddExplosionForce(_explosionForce, explosionPosition, _explosionRadius, _upwardsModifier);
         }
