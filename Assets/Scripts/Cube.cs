@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    public event Action<Cube> ClickedToDestroy;
+    public event Action<Cube> OnSelfDestroy;
 
     public float DivideChance { get; private set; }
 
-    private void OnMouseDown()
+    public void Die()
     {
-        ClickedToDestroy?.Invoke(this);
+        OnSelfDestroy?.Invoke(this);
     }
 
     public void Init(float chance)

@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
             Cube cube = Instantiate(_prefabCube, positions[i], rotation);
             cube.transform.localScale = scale;
             cube.Init(divideChance);
-            cube.ClickedToDestroy += DestroyCube;
+            cube.OnSelfDestroy += DestroyCube;
 
             if (cube.TryGetComponent(out Renderer renderer))
             {
@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
 
     private void DestroyCube(Cube cube)
     {
-        cube.ClickedToDestroy -= DestroyCube;
+        cube.OnSelfDestroy -= DestroyCube;
 
         Destroy(cube.gameObject);
     }

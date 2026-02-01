@@ -30,6 +30,8 @@ public class Divider : MonoBehaviour
         {
             _exploder.ExplosionCube(cube.transform);
         }
+
+        cube.Die();
     }
 
     private int GetRandomCubesCount()
