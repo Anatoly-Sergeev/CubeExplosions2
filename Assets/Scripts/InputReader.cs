@@ -5,23 +5,15 @@ public class InputReader : MonoBehaviour
 {
     private const int MouseButton = 0;
 
-    [SerializeField] private Camera _ñamera;
+    [SerializeField] private Raycaster _raycaster;
 
     public event Action<Cube> CubeSelected;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(MouseButton))
+        if (Input.GetMouseButtonDown(MouseButton) && _raycaster.TrySelectCube(out Cube cube))
         {
-            Ray ray = _ñamera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                if (hit.collider.TryGetComponent(out Cube cube))
-                {
-                    CubeSelected?.Invoke(cube);
-                }
-            }
+            CubeSelected?.Invoke(cube);
         }
     }
 }

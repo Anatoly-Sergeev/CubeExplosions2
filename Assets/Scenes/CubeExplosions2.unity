@@ -548,6 +548,7 @@ GameObject:
   - component: {fileID: 1615195746}
   - component: {fileID: 1615195750}
   - component: {fileID: 1615195751}
+  - component: {fileID: 1615195752}
   m_Layer: 0
   m_Name: Divider
   m_TagString: Untagged
@@ -569,6 +570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabCube: {fileID: 4587315085718101468, guid: e68eb099c2467e846b46bdb659912bf3,
     type: 3}
+  _painter: {fileID: 1615195751}
 --- !u!114 &1615195747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c4ecf226b3043478daefadcef92449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "_\u0441amera": {fileID: 103027652}
+  _raycaster: {fileID: 1615195752}
 --- !u!114 &1615195748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,7 +626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a7e2fb1e72aa140b0fa5efd46bedc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _exploderRenderer: {fileID: 1615195751}
   _explosionForce: 25
   _explosionRadius: 5
   _upwardsModifier: 0.7
@@ -637,11 +638,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1615195745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e96ceaf04109c64e9152317c5d60ac6, type: 3}
+  m_Script: {fileID: 11500000, guid: 44fa0869caccc5b469f6b9b30ce1e440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectExplosion: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
-    type: 3}
+--- !u!114 &1615195752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615195745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1432a56c351674d803f0d1b26eac14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 103027652}
 --- !u!1 &1635611955
 GameObject:
   m_ObjectHideFlags: 0

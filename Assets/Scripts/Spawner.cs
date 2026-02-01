@@ -4,6 +4,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Cube _prefabCube;
+    [SerializeField] private Painter _painter;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class Spawner : MonoBehaviour
 
             if (cube.TryGetComponent(out Renderer renderer))
             {
-                renderer.material.color = new(Random.value, Random.value, Random.value);
+                renderer.material.color = _painter.GetRandomColor();
             }
 
             if (cube.TryGetComponent(out Rigidbody rigidbody))
@@ -41,6 +42,8 @@ public class Spawner : MonoBehaviour
 
     private void DestroyCube(Cube cube)
     {
+        cube.ClickedToDestroy -= DestroyCube;
+
         Destroy(cube.gameObject);
     }
 

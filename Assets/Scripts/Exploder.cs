@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Exploder : MonoBehaviour
 {
-    [SerializeField] private ExploderRenderer _exploderRenderer;
     [SerializeField] private float _explosionForce;
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _upwardsModifier;
@@ -17,8 +16,14 @@ public class Exploder : MonoBehaviour
         {
             cube.AddExplosionForce(force, transform.position, radius, _upwardsModifier);
         }
+    }
 
-        _exploderRenderer.ExplosionRender(transform.position, transform.rotation);
+    public void ExplosionSplitCube(Vector3 explosionPosition, List<Rigidbody> cubes)
+    {
+        foreach (Rigidbody cube in cubes)
+        {
+            cube.AddExplosionForce(_explosionForce, explosionPosition, _explosionRadius, _upwardsModifier);
+        }
     }
 
     private List<Rigidbody> GetExplodebleCubes(Vector3 position, float radius)
