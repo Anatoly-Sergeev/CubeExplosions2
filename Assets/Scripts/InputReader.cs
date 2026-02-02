@@ -5,15 +5,13 @@ public class InputReader : MonoBehaviour
 {
     private const int MouseButton = 0;
 
-    [SerializeField] private Raycaster _raycaster;
-
-    public event Action<Cube> CubeSelected;
+    public event Action<Vector3> Onclick;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(MouseButton) && _raycaster.TrySelectCube(out Cube cube))
+        if (Input.GetMouseButtonDown(MouseButton))
         {
-            CubeSelected?.Invoke(cube);
+            Onclick?.Invoke(Input.mousePosition);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Divider : MonoBehaviour
@@ -6,25 +7,29 @@ public class Divider : MonoBehaviour
     private const int MaxCubesCount = 6;
     private const float HalfFactor = 0.5f;
 
-    [SerializeField] private Spawner _spawn;
-    [SerializeField] private InputReader _input;
+    [SerializeField] private Spawner _spawner;
+    [SerializeField] private Raycaster _raycaster;
     [SerializeField] private Exploder _exploder;
 
     private void OnEnable()
     {
-        _input.CubeSelected += DividingCubes;
+        _raycaster.CubeSelected += DividingCubes;
     }
 
     private void OnDisable()
     {
-        _input.CubeSelected -= DividingCubes;
+        _raycaster.CubeSelected -= DividingCubes;
     }
 
     private void DividingCubes(Cube cube)
     {
         if (CanDividing(cube.DivideChance))
         {
-            _exploder.ExplosionSplitCube(cube.transform.position, _spawn.SpawnCubes(GetRandomCubesCount(), cube.transform.position, cube.transform.rotation, DecreaseCubeScale(cube.transform.localScale), DecreaseDivideChance(cube.DivideChance)));
+            Vector3 scale = DecreaseCubeScale(cube.transform.localScale);
+            float chance = DecreaseDivideChance(cube.DivideChance);
+            List<Rigidbody> cubes = _spawner.SpawnCubes(GetRandomCubesCount(), cube.transform.position, cube.transform.rotation, scale, chance);
+
+            _exploder.ExplosionSplitCube(cube.transform.position, cubes);
         }
         else
         {
