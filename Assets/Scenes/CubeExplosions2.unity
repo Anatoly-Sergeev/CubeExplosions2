@@ -583,7 +583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c4ecf226b3043478daefadcef92449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _raycaster: {fileID: 1615195752}
 --- !u!114 &1615195748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,8 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5665d39bf11a3344fae13d74a000d36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawn: {fileID: 1615195746}
-  _input: {fileID: 1615195747}
+  _spawner: {fileID: 1615195746}
+  _raycaster: {fileID: 1615195752}
   _exploder: {fileID: 1615195750}
 --- !u!4 &1615195749
 Transform:
@@ -654,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 103027652}
+  _input: {fileID: 1615195747}
 --- !u!1 &1635611955
 GameObject:
   m_ObjectHideFlags: 0
